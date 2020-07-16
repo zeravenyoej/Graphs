@@ -48,7 +48,15 @@ traversal_path = []
 
 
 # TRAVERSAL TEST
+# visited_rooms = {}
 visited_rooms = set()
+retraced_steps = {
+    'n': 's',
+    's': 'n',
+    'e': 'w',
+    'w': 'e'
+}
+
 player.current_room = world.starting_room
 visited_rooms.add(player.current_room)
 
