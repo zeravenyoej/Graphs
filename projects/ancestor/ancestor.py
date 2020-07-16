@@ -42,7 +42,7 @@ def earliest_ancestor(ancestors, starting_node):
     visited = set()
     s.push([starting_node])
 
-    longest_path = []
+    longest_path = [starting_node]
     aged_one = -1
     
     while s.size() > 0:
@@ -58,7 +58,8 @@ def earliest_ancestor(ancestors, starting_node):
             parents = graph.get_neighbors(current_node)
 
             for parent in parents: 
-                new_path = path + [parent]
+                new_path = list(path)
+                new_path.append(parent)
                 s.push(new_path)
 
-    return longest_path[-1]
+    return aged_one
